@@ -4,3 +4,5 @@ a0b1
 a0b1d1
 a0b1e0
 a0c0
+a0c0f1
+a0c0g1

@@ -16,31 +16,36 @@ namespace FinalProject
         public LogicNode() : base()
         {
             Console.WriteLine("LogicNode defult c'tor");
-            m_children = (List<LogicNode>)m_children;
-            for (int i = 0; i < m_number_of_children; i++)
+            m_children = new LogicNode[m_num_of_children];
+            for (int i = 0; i < m_num_of_children; i++)
             {
                 m_children[i] = null;
             }
             //m_literal_idx = 0;
-            m_value = -1;
+            m_value = INVALID_VALUE;
         }
         public LogicNode(string name, node_type type, int depth, int number_of_children, LogicNode parent) :
             base(name, type, depth, number_of_children, parent)
         {
             Console.WriteLine("LogicNode c'tor");
-            // m_children = new LogicNode[m_number_of_children];
-            m_children = new List<LogicNode>();
-            for (int i = 0; i < m_number_of_children; i++)
+            m_children = new LogicNode[m_num_of_children];
+            for (int i = 0; i < m_num_of_children; i++)
             {
                 m_children[i] = null;
             }
             //m_literal_idx = 0;
-            m_value = -1;
+            m_value = INVALID_VALUE;
+        }
+
+        public LogicNode(Node node) : base(node)
+        {
+            m_value = INVALID_VALUE;
+            m_children = new LogicNode[m_num_of_children];
         }
 
         public LogicNode get_child(string child_name)
         {
-            for (int i = 0; i<m_number_of_children; i++)
+            for (int i = 0; i<m_num_of_children; i++)
                 if ((m_children[i] != null) && (m_children[i].get_node_name() == child_name)) return (LogicNode)m_children[i];
             return null;
         }
@@ -76,8 +81,6 @@ namespace FinalProject
                  return; 
               }
          }*/
-
-        
 
 
 

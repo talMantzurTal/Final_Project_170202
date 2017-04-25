@@ -14,6 +14,13 @@ namespace FinalProject
         ALICE,
         BOB
     };
+
+    enum copy_flags
+    {
+        NA,
+        SHALLOW,
+        DEEP
+    };
     class Program
     {
         static void Main(string[] args)
