@@ -1,0 +1,5 @@
+1. In the kw_tran, each node in the protocol tree, had a LogicNode type parent
+Analysis:
+the problem was arrised due to Node's c'tor: Node (Node node). This c'tor has been written in order to build a new tree based on existing one (in this case: build a ProtocolTree from existing FormulaTree). When we constructs a new PartyNode to the tree, Node's c'tor resets m_parent to node.get_parent(). get_parent() method returns a pointer to the parent of a specific node, so when we call node.get_parent(), it returns a LogicNode type parent cause node is a LogicNode (from the FormulaTree.
+Solution:
+replacing the assignment to m_parent with null (m_parent = null), and adding to the set_child() m_parent = this.
